@@ -1,0 +1,8 @@
+{
+    "kind": "dns#resourceRecordSet",
+    "name": "www.mydrsolution.com.",
+    "type": "A",
+    "ttl": 300,
+    "rrdatas": ["35.239.0.1"]
+  }
+  

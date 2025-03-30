@@ -1,0 +1,27 @@
+resources:
+- name: dr-compute-instance
+  type: compute.v1.instance
+  properties:
+    zone: us-central1-a
+    machineType: zones/us-central1-a/machineTypes/n1-standard-1
+    disks:
+    - boot: true
+      autoDelete: true
+      initializeParams:
+        sourceImage: projects/debian-cloud/global/images/family/debian-11
+    networkInterfaces:
+    - network: global/networks/default
+
+- name: dr-storage-bucket
+  type: storage.v1.bucket
+  properties:
+    location: US
+    storageClass: STANDARD
+    name: my-dr-backup-bucket
+
+- name: dr-dns
+  type: dns.v1.managedZone
+  properties:
+    dnsName: mydrsolution.com.
+    description: "Failover DNS zone"
+    name: failover-zone
